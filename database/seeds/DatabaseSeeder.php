@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Model\Product;
-use App\Model\Review;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $numberOfProducts = 100;
         $numberOfReviews = 300;
 
-        factory(Product::class, $numberOfProducts)->create();
-        factory(Review::class, $numberOfReviews)->create();
+        factory('App\Model\Product', $numberOfProducts)->create();
+        factory('App\Model\Review', $numberOfReviews)->create();
     }
 }
