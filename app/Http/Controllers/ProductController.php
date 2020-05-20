@@ -52,7 +52,9 @@ class ProductController extends Controller
         $product->discount = $request->discount;
         $product->save();
 
-        return response(['data' => new ProductResource($product)], Response::HTTP_CREATED);
+        return response([
+            'data' => new ProductResource($product)
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -89,7 +91,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request['detail'] = $request->description; // Creating a new index from 'description' as the database contains field name as 'details' which gets transformed into the 'desctiption' under the 'Resources'
+        unset($request['description']);             // Unsetting the description from the $request array
+
+        /* 
+         * INFO: Mass assignment is benig used here since each value is being setup like in the store function 
+         * Laravel stops the Mass assignment by default so we need to enable it in the Model by creating a protected $fillable = []; array
+         */
+        $product->update($request->all());
+
+        return response([
+            'data' => new ProductResource($product)
+        ], Response::HTTP_OK);
     }
 
     /**
