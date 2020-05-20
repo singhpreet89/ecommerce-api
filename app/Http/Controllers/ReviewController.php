@@ -95,8 +95,12 @@ class ReviewController extends Controller
      * @param  \App\Model\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(Request $request, Product $product, Review $review)
     {
-        //
+        $review->delete();
+
+        return response([
+            'data' => 'Deleted'
+        ], Response::HTTP_OK);
     }
 }
