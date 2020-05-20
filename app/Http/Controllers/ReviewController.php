@@ -16,7 +16,11 @@ class ReviewController extends Controller
      */
     public function index(Product $product)
     {
-        return ReviewResource::collection($product->reviews);
+        if (count($product->reviews) != 0) {
+            return ReviewResource::collection($product->reviews);
+        } else {
+            return response(['data' => "No reviews"], 200);
+        }
     }
 
     /**
