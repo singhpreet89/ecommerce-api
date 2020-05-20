@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Model\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductRequest;
+use App\Exceptions\ProductNotBelongsToUser;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductCollection;
@@ -91,6 +93,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $this->productUserCheckHelper($product);
         $request['detail'] = $request->description; // Creating a new index from 'description' as the database contains field name as 'details' which gets transformed into the 'desctiption' under the 'Resources'
         unset($request['description']);             // Unsetting the description from the $request array
 
@@ -113,10 +116,18 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $this->productUserCheckHelper($product);
         $product->delete();
 
         return response([
             'data' => 'Deleted'
         ], Response::HTTP_OK);
+    }
+
+    public function productUserCheckHelper($product)
+    {
+        if (Auth::id() !== $product->user_id) {
+            throw new ProductNotBelongsToUser;
+        }
     }
 }

@@ -13,9 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserSeeder::class);
 
+        $numberOfUsers = 5;
         $numberOfProducts = 100;
         $numberOfReviews = 300;
 
+        
+        factory(App\User::class, $numberOfUsers)->create();
         factory('App\Model\Product', $numberOfProducts)->create();
         factory('App\Model\Review', $numberOfReviews)->create();
     }

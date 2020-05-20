@@ -58,7 +58,6 @@ class Handler extends ExceptionHandler
             return $this->apiExceptions($request, $exception);
         }
 
-        dd($exception);
         return parent::render($request, $exception);
     }
 }
