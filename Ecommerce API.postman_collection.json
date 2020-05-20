@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "77904a13-d199-456b-921e-3136e033d268",
+		"name": "Ecommerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth",
+			"item": [
+				{
+					"name": "OAuth GET ACCESS TOKEN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"grant_type\" : \"password\",\r\n\t\"client_id\" : 2,\r\n\t\"client_secret\" : \"7zWnyMbFpx1dsCMu0MScYSEs7x8yjrIh8Y3yMn04\",\r\n\t\"username\" : \"qbernhard@example.com\",\r\n\t\"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ecommerce/public/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Registered User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "The environment contains a auth variable with the following valu:\r\nBearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiMWQwYWJhNjUwMjRkM2Q2YjAyMzllZjdlY2ZlYzY1NGUxYmVhYmFjMTc3ZWY5OGFkYTBiNDk1ZjgwZTU4OTc0ZWQ1NDc3YTY3M2NiMjE2MzAiLCJpYXQiOjE1ODk5MjQ4OTYsIm5iZiI6MTU4OTkyNDg5NiwiZXhwIjoxNjIxNDYwODk2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.y1Sb3EbQ2wj96IW2nSS2I1VJR2JBdaetckrzFIxBpD9drEzr_DhWKzpjOWAm_tiLjFPw3qoCghmwSt6O5EaxkoowUA_C6DvmTgSMk5anH4c0rWpBTrQDuXFYL_61kLhpM773DOyeX_EocIYejFy9yFeu4a8SkqTHrGOGGMJ8OzCYMJ0KdeFJ5uJVw2eyRcF_07CoXFEYWK4SQH3qsprj0jouKRdQCimAIRSrzySedbsLY3r0Se-KEBGIvTfPLYBsNaO_5OPd6MUakIiOyaV88plaSkQeZaXc-OHFfXEyRU9pfUVZSzcB9N9N7nRyWM1qjBTC9gbd_q4SqdGT1mR3_u4St-qoxJLa2LBSq0q88plEFikx0GjbZvDQob-nmKu3FPvkALdLTuWxoP7WP3kQw8bUgVf8ehyNh5mi0zIYSbcc4w3x8bLRJWUakRF5_jzE25_J2CKegZkdLbH_iTacUR4AtXPKUhz8eAUzkZp4SiR0Bui1OBeD-37hkaLZAaeHPxRQZJTQEcB36xTJOwhbVOArObERWJqByerQJ9MqQYTr0GGKv52pl7BYEkDnV4eYW6CrkNiiDHOkJ_arQKiMxYGLaRMpQXNL_QliwP2s1ZEoWVq7cRKoHvd39wRaw-HN5EMeXcigVPw4QvsMdB7N2vUEpBALYR0u5_-iKikY12o"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Product All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "applicaion/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\" : \"iPhone 11\",\r\n\t\"description\" : \"The best iPhone in small size\",\r\n\t\"price\" : 1399,\r\n\t\"stock\" : 9,\r\n\t\"discount\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\" : \"iPhone 11 UPDATED\",\r\n\t\"description\" : \"UPDATED: The best iPhone in small size\",\r\n\t\"price\" : 1399,\r\n\t\"stock\" : 8,\r\n\t\"discount\" : 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Reviews All for a Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/10/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"10",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Review Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "applicaion/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"customer\" : \"Harpreet Singh\",\r\n\t\"star\" : 3,\r\n\t\"review\" : \"A very good product.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/10/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"10",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Review Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "applicaion/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"customer\" : \"Harpreet Singh\",\r\n\t\"star\" : 3,\r\n\t\"review\" : \"A very good product.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/10/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"10",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Review Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "applicaion/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/ecommerce/public/api/products/10/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ecommerce",
+								"public",
+								"api",
+								"products",
+								"10",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

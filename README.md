@@ -1,5 +1,5 @@
 # Ecommerce API
-This is a minimal sample API for an Ecommerce Application.
+A demo API for an Ecommerce Application.
 
 ## Installation and Requirements
 1. Install [Composer](https://getcomposer.org/download/)
@@ -11,6 +11,7 @@ This is a minimal sample API for an Ecommerce Application.
 ```bash
 composer install
 ``` 
+7. Open the **".env.example"** file from the root directory and copy the content. Create a new **".env"** file and paste the copied content. 
 
 ## Running the application
 1. Run Xampp.
@@ -46,7 +47,7 @@ Import the **"Ecommerce API.postman_collection.json"** into Postman and a quick 
 | ------------- | ------------- | ------------- | ------------- |
 | Get all Products: | `http://localhost/ecommerce/public/api/products` | | GET |
 | Get one Product: | `http://localhost/ecommerce/public/api/products/10` | | GET |
-| Create a Product: | `http://localhost/ecommerce/public/api/products` | Bearer Token: **"Copied in point 7"** content-type: contentTypeJson, {"name" : "iPhone 11", "description" : "The best iPhone in small size", "price" : 1399, "stock" : 9, "discount" : 10} | POST |
-| Update a Product: | `http://localhost/ecommerce/public/api/products/10` | Bearer Token: **"Copied in point 7"** content-type: contentTypeJson, {"name" : "UPDATED: iPhone 11", "description" : "UPDATED: The best iPhone in small size", "price" : 1399, "stock" : 9, "discount" : 10} | POST |
+| Create a Product: | `http://localhost/ecommerce/public/api/products` | Bearer Token: **"Copied in point 7"**, content-type: contentTypeJson, {"name" : "iPhone 11", "description" : "The best iPhone in small size", "price" : 1399, "stock" : 9, "discount" : 10} | POST |
+| Update a Product: | `http://localhost/ecommerce/public/api/products/10` | Bearer Token: **"Copied in point 7"**, content-type: contentTypeJson, {"name" : "UPDATED: iPhone 11", "description" : "UPDATED: The best iPhone in small size", "price" : 1399, "stock" : 9, "discount" : 10} | POST |
 | Delete a Product: | `http://localhost/ecommerce/public/api/products/101` | Bearer Token: **"Copied in point 7"** | POST |
 | Get all Reviews for a Products: | `http://localhost/ecommerce/public/api/products/10/reviews` | | GET |
