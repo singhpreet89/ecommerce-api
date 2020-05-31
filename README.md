@@ -1,5 +1,12 @@
 # Ecommerce API
-A demo API for an Ecommerce Application.
+<p align="center">
+  <a href="#" alt="Built with: Laravel 7">
+    <img src="https://badgen.net/badge/Built%20with/Laravel%207/FF2D20" />
+  </a>
+  <a href="#" alt="Powered by: PHP 7.4.4">
+    <img src="https://badgen.net/badge/Powered%20by/PHP%207.4.4/8892BF" />
+  </a>
+</p>
 
 ## Installation and Requirements
 1. Install [Composer](https://getcomposer.org/download/)
